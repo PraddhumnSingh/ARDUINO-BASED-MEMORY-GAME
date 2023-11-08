@@ -47,10 +47,12 @@ void loop() {// the loop function runs over and over again forever
   
 switch(stage){
 case 0:
+      digitalWrite(leds[0], HIGH);
       lcd.setCursor(0, 0); lcd.print("Press Red Button");
       lcd.setCursor(0, 1); lcd.print(" for Start Game ");
       button[0] = digitalRead(buttons[0]);
       while(button[0] == HIGH) {
+        digitalWrite(leds[0], LOW);
         button[0] = digitalRead(buttons[0]);
       }
       level=1, stage=1, game_play=1;
